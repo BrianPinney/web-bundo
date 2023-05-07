@@ -1,8 +1,14 @@
-export default function Main (){
+import AddDock from "./AddDock";
+import AllDocks from "./AllDocks";
+
+
+
+export default function Main ({docks, setDocks}){
 
     return (
-        <>
-        MAIN
+        <> 
+        <AddDock setDocks={setDocks}/>
+        <AllDocks docks={docks} setDocks={setDocks}/>
         </>
     )
 }
