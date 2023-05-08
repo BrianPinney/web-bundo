@@ -3,6 +3,7 @@ import { useState } from "react"
 export default function AddDock ({setDocks}){
 const [ lambda, setLambda] = useState('')
 const [ phi, setPhi] = useState('')
+const [city, setCity] = useState('')
 
 const handleAddDock = (e) => {
     e.preventDefault()
@@ -10,7 +11,7 @@ const handleAddDock = (e) => {
     fetch("https://bundo-bp.web.app/docks",{
     method: "POST",
     headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({ lambda, phi}),
+    body: JSON.stringify({ city, lambda, phi}),
 })
 .then((resp) => resp.json())
 .then((data) => {
@@ -27,6 +28,15 @@ const handleAddDock = (e) => {
        <>
         <form onSubmit={handleAddDock}>
             <h2>DOCK</h2>
+            <label htmlFor="city"> 🚐 City 
+                <input 
+                type="text"
+                placeholder="Where"
+                value={city}
+                onChange={(e) => {
+                    setCity(e.target.value)}} />
+            </label>
+            <br />
             <label htmlFor="lambda"> Lambda
                 <input 
                     type="text" 

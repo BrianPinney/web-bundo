@@ -10,7 +10,7 @@ const [docks, setDocks] = useState([])
   return (
     <div className="App">
       <header className='App-header'>
-        <h1>Bundo</h1>
+        <h1>BÜNDO</h1>
         <Main docks={docks} setDocks={setDocks}/>
       </header>
     </div>
