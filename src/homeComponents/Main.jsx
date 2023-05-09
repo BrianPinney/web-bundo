@@ -2,6 +2,8 @@ import { Col, Container, Row } from "react-bootstrap";
 import AddDock from "./AddDock";
 import AllDocks from "./AllDocks";
 import Search from "./Search";
+import Footer from "./Footer";
+
 
 
 
@@ -20,8 +22,7 @@ export default function Main ({docks, setDocks}){
                 </Col>
             </Row>
         </Container>
-        
-       
+        <Footer />
         </>
     )
 }
