@@ -25,8 +25,8 @@ const toggleModal = (dock) => {
               <div key={docks._id}>
                 <button onClick={() => toggleModal(docks)}>
                 <h2>City: {docks.city}</h2>
-                <h2>△: {docks.lambda}</h2>
-                <h2>⏀: {docks.phi}</h2>
+                <h3>△: {docks.lambda}</h3>
+                <h3>⏀: {docks.phi}</h3>
                 </button>
               </div>
             ))}

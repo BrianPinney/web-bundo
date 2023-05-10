@@ -1,5 +1,5 @@
 import Main from "./components/home/Main";
-import Gallery from "./components/Gallery";
+// import Gallery from "./components/Gallery";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/App.css";
@@ -14,8 +14,8 @@ function App() {
         <Main docks={docks} setDocks={setDocks} />
       </header>
 
-      <h2>hi hi</h2>
-      <Gallery />
+      {/* <h2>hi hi</h2>
+      <Gallery /> */}
     </div>
   );
 }
