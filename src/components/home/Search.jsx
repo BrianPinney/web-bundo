@@ -1,17 +1,19 @@
-import { useState, useEffect } from "react";
-import { Button } from "react-bootstrap";
+import { useState } from "react";
 
 export default function Search(docks, setDocks) {
   const [searchCity, setSearchCity] = useState("");
   const [searchResult, setSearchResult] = useState();
-  const [rateDock, setRateDock] = useState(false);
-  const [selectDock, setSelectDock] = useState();
 
-  const handleSearch = () => {
-    fetch(`https://bundo-bp.web.app/docks/search/${searchCity}`)
-      .then((resp) => resp.json())
-      .then((data) => setSearchResult(data))
-      .catch((err) => console.error(err));
+  const handleSearch = async () => {
+    try {
+      const response = await fetch(
+        `https://bundo-bp.web.app/docks/search/${searchCity}`
+      );
+      const data = await response.json();
+      setSearchResult(data);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -32,16 +34,14 @@ export default function Search(docks, setDocks) {
             return (
               <div key={docks._id}>
                 <h2>City: {docks.city}</h2>
-                <Button onClick={`https://www.google.com/maps/place/${docks.lambda}+${docks.phi}`} >
                 <p>△: {docks.lambda}</p>
                 <p>⏀: {docks.phi}</p>
-                </Button>
+             
 
                 <p>
                   <a
                     href={`https://www.google.com/maps/place/${docks.lambda}+${docks.phi}`}
-                    target="_blank"
-                  >
+                    target="_blank" rel="noreferrer">
                     Google
                   </a>
                 </p>
