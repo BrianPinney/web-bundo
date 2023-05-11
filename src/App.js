@@ -3,6 +3,7 @@ import Main from "./components/home/Main";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/App.css";
+import NavMenu from "./components/NavBar/NavMenu";
 
 function App() {
   const [docks, setDocks] = useState([]);
@@ -10,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>BÜNDO</h1>
+        <NavMenu />
         <Main docks={docks} setDocks={setDocks} />
       </header>
 
