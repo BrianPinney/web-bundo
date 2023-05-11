@@ -1,18 +1,24 @@
-import Main from "./components/home/Main";
 import { useState } from "react";
+import Main from "./components/home/Main";
+import Footer from "./components/home/Footer";
+import NavMenu from "./components/NavBar"; 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/App.css";
-import NavMenu from "./components/NavBar/NavMenu";
+import Maps from "./components/home/Maps";
 
 function App() {
-  const [docks, setDocks] = useState([]);
+  const [docks, setDocks] = useState("");
 
   return (
     <div className="App"> 
     <NavMenu />
       <header className="App-header">
-        <Main docks={docks} setDocks={setDocks} />
+        <Maps />
       </header>
+      <main>
+        <Main docks={docks} setDocks={setDocks} />
+      </main>
+      <Footer />
     </div>
   );
 }

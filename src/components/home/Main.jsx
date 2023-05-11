@@ -1,11 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
-import AddDock from "./AddDock"
-import Search from "./Search";
-import Footer from "./Footer";
-
-
-
-
+import AddDock from "./AddDock.jsx"
+import Search from "./Search.jsx";
+import Footer from "./Footer.jsx";
 
 
 export default function Main ({docks, setDocks}){
@@ -18,12 +14,11 @@ export default function Main ({docks, setDocks}){
                     <Search docks={docks} setDocks={setDocks}/>
                 </Col>
                 <Col>
-                <Row className="find-bundocks"></Row>
                 <Row className="add-bundock"><AddDock setDocks={setDocks}/></Row>
                 </Col>
             </Row>
         </Container>
-        <Footer />
+        
         </>
     )
 }

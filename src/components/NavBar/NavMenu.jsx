@@ -2,9 +2,9 @@ export default function NavMenu(){
 
     return (
         <>
-        <NavMenu>
-            BÜNDO
-        </NavMenu>
+        <h1>BÜNDO</h1>
+            
+        
         </>
     )
 }
