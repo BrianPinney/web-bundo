@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 
 export default function Maps() {
-  const [location, setLocation] = useState({ lat: 26.376032, lng: -80.12236 });
+  const [location, setLocation] = useState({ lat: 26.345990, lng: -80.069871 });
   const mapRef = useRef(null);
 
   useEffect(() => {
-    const YOUR_API_KEY = "AIzaSyBryuu9tcUWxshOg1LVAhGF8VOHkCpH3og";
+    const YOUR_API_KEY = "AIzaSyCrAbAtInm3STMieLALJ7adX6D5AAgB7j8";
+    // const YOUR_API_KEY = "AIzaSyBryuu9tcUWxshOg1LVAhGF8VOHkCpH3og";
     const googleMapScript = document.createElement("script");
     googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=${YOUR_API_KEY}&libraries=places`;
     window.document.body.appendChild(googleMapScript);
@@ -33,6 +34,7 @@ export default function Maps() {
         map,
         title: "Great Location to BÜNDOCK",
       });
+
     });
   }, []);
 
