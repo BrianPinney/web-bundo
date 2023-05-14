@@ -1,12 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 
 export default function Maps() {
-  const [location, setLocation] = useState({ lat: 26.345990, lng: -80.069871 });
+  const [location, setLocation] = useState({ lat: 26.350771, lng: -80.155436 });
   const mapRef = useRef(null);
 
   useEffect(() => {
     const YOUR_API_KEY = "AIzaSyCrAbAtInm3STMieLALJ7adX6D5AAgB7j8";
-    // const YOUR_API_KEY = "AIzaSyBryuu9tcUWxshOg1LVAhGF8VOHkCpH3og";
     const googleMapScript = document.createElement("script");
     googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=${YOUR_API_KEY}&libraries=places`;
     window.document.body.appendChild(googleMapScript);
@@ -26,7 +25,7 @@ export default function Maps() {
       const google = window.google;
       const map = new google.maps.Map(mapRef.current, {
         center: { lat: location.lat, lng: location.lng },
-        zoom: 15,
+        zoom: 11,
       });
 
       new google.maps.Marker({

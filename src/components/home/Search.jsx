@@ -36,15 +36,16 @@ export default function Search(docks, setDocks) {
                 <h2>City: {docks.city}</h2>
                 <p>△: {docks.lambda}</p>
                 <p>⏀: {docks.phi}</p>
-             
 
-                <p>
+                {/* <p>
                   <a
                     href={`https://www.google.com/maps/place/${docks.lambda}+${docks.phi}`}
-                    target="_blank" rel="noreferrer">
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     Google
                   </a>
-                </p>
+                </p> */}
               </div>
             );
           })}
