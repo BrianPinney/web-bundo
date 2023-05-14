@@ -4,6 +4,7 @@ export default function AddDock ({setDocks}){
 const [ lambda, setLambda] = useState('')
 const [ phi, setPhi] = useState('')
 const [city, setCity] = useState('')
+const [dockName, setDockName] = useState('')
 
 const handleAddDock = (e) => {
     e.preventDefault()
@@ -11,7 +12,7 @@ const handleAddDock = (e) => {
     fetch("https://bundo-bp.web.app/docks",{
     method: "POST",
     headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({ city, lambda, phi}),
+    body: JSON.stringify({dockName, city, lambda, phi}),
 })
 .then((resp) => resp.json())
 .then((data) => {
@@ -28,6 +29,15 @@ const handleAddDock = (e) => {
        <>
         <form onSubmit={handleAddDock}>
             <h2>DOCK</h2>
+            <label htmlFor="dockName"> Dock Name 
+                <input 
+                type="text"
+                placeholder="Name your dock"
+                value={dockName}
+                onChange={(e) => {
+                    setDockName(e.target.value)}} />
+            </label>
+            <br />
             <label htmlFor="city"> 🚐 City 
                 <input 
                 type="text"

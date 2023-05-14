@@ -1,17 +1,17 @@
 import { useState } from "react";
 import Main from "./components/home/Main";
 import Footer from "./components/home/Footer";
-import NavMenu from "./components/NavBar"; 
+import NavMenu from "./components/NavBar";
+import Maps from "./components/home/Maps";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/App.css";
-import Maps from "./components/home/Maps";
 
 function App() {
   const [docks, setDocks] = useState("");
 
   return (
-    <div className="App"> 
-    <NavMenu />
+    <div className="App">
+      <NavMenu />
       <header className="App-header">
         <Maps />
       </header>
