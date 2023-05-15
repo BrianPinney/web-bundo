@@ -5,9 +5,9 @@ export default function Maps() {
   const mapRef = useRef(null);
 
   useEffect(() => {
-    const YOUR_API_KEY = "AIzaSyCrAbAtInm3STMieLALJ7adX6D5AAgB7j8";
+    const API_KEY = "AIzaSyCrAbAtInm3STMieLALJ7adX6D5AAgB7j8";
     const googleMapScript = document.createElement("script");
-    googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=${YOUR_API_KEY}&libraries=places`;
+    googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places`;
     window.document.body.appendChild(googleMapScript);
 
     googleMapScript.addEventListener("load", () => {
