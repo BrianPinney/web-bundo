@@ -1,5 +1,5 @@
 import { useState } from "react"
-import {Form, Button, Container} from "react-bootstrap"
+import {Form, Button, Row, Container, Col} from "react-bootstrap"
 
 export default function AddDock ({setDocks}){
 const [ lambda, setLambda] = useState('')
@@ -29,8 +29,11 @@ const handleAddDock = (e) => {
     return (
 
        <section>
-        <Container fluid>
+        <Container >
+            <Row>
+                <Col sm={10} md={10} lg={10} xl={10}>
         <Form onSubmit={handleAddDock} className="d-flex">
+        <Form.Group>
         <Form.Label htmlFor="dockName"> Dock Name 
                 <Form.Control
                 type="text"
@@ -63,9 +66,13 @@ const handleAddDock = (e) => {
                     onChange={(e) => {
                         setPhi(e.target.value)}}
                         />
-            </Form.Label>
-              <Button variant="outline-success" text-align="center">Create</Button>
+            </Form.Label> 
+            </Form.Group>
+              <Button onClick={handleAddDock} variant="outline-success" text-align="center">Create</Button>
+             
             </Form>
+            </Col>
+            </Row>
             </Container>
         </section>
     )

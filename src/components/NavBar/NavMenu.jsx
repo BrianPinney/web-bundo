@@ -10,7 +10,7 @@ export default function NavMenu({searchResult, setSearchResult}) {
           <Search setSearchResult={setSearchResult} searchResult={searchResult}/>
           </Col>
           <Col>
-            <Navbar.Brand>BÜNDO</Navbar.Brand>
+            <Navbar.Brand fluid>BÜNDO</Navbar.Brand>
           </Col>
           <Col>
             <Navbar.Toggle aria-controls="navbarScroll" />

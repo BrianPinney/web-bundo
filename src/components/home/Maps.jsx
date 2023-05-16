@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Popover } from "react-bootstrap";
 
 
 export default function Maps( {searchResult, setSearchResult}) {
@@ -33,12 +34,15 @@ export default function Maps( {searchResult, setSearchResult}) {
         searchResult.map((docks) => {
           
           const markerDot = { lat: Number(docks.lambda), lng: Number(docks.phi)}
-          console.log(markerDot)
-          new google.maps.Marker({
+          const marker = new google.maps.Marker({
             position: markerDot,
             map,
+            animation: google.maps.Animation.DROP,
             title: docks.dockName || "Happy Exploring",
           });
+          marker.addListener("mouseover", () => {
+            
+          })
         })
       }
 

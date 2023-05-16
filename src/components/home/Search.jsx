@@ -6,7 +6,8 @@ export default function Search({searchResult, setSearchResult}) {
   const [searchCity, setSearchCity] = useState("");
   // const [searchResult, setSearchResult] = useState();
 
-  const handleSearch = async () => {
+  const handleSearch = async (e) => {
+    e.preventDefault()
     try {
       const response = await fetch(
         `https://bundo-bp.web.app/docks/search/${searchCity}`
@@ -22,7 +23,7 @@ export default function Search({searchResult, setSearchResult}) {
 
   return (
     <div>
-      <Form className="d-flex">
+      <Form onSubmit={handleSearch} className="d-flex">
               
         <InputGroup className="mb-3">
         <Form.Control
