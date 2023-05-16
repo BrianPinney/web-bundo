@@ -1,13 +1,13 @@
 import {Col, Container, Row, Nav, Navbar} from "react-bootstrap";
 import Search from "../home/Search";
 
-export default function NavMenu({docks, setDocks}) {
+export default function NavMenu() {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
         <Row>
           <Col >
-          <Search docks={docks} setDocks={setDocks} />
+          <Search />
           </Col>
           <Col>
             <Navbar.Brand>BÜNDO</Navbar.Brand>

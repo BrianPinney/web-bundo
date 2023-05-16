@@ -3,7 +3,6 @@ import { Container, Row, Col } from "react-bootstrap";
 import Footer from "./components/home/Footer";
 import NavMenu from "./components/NavBar";
 import Maps from "./components/home/Maps";
-import Search from "./components/home/Search";
 import AddDock from "./components/home/AddDock"
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/App.css";
