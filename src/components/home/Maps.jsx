@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import { OverlayTrigger, Popover } from "react-bootstrap";
 
 
-export default function Maps( {searchResult}) {
+export default function Maps( {searchResult, setSearchResult}) {
   const [location, setLocation] = useState({ lat: 26.350771, lng: -80.155436 });
   const mapRef = useRef(null);
 
@@ -29,45 +28,22 @@ export default function Maps( {searchResult}) {
         center: { lat: location.lat, lng: location.lng },
         zoom: 11,
       });
-
-      console.table(searchResult);
       
-      const marker = new google.maps.Marker({
-        position: { lat: 26.366785, lng: -80.068113 },
-        map,
-        title: "Great Location to BÜNDOCK",
-      });
-      
-      const contentString = 'Hello everyone';
-      
-      const infowindow = new google.maps.InfoWindow({
-        content: contentString,
-      });
-      
-      marker.addListener("mouseover", () => {
-        infowindow.open(map, marker);
-      });
-      
-      marker.addListener("mouseout", () => {
-        infowindow.close();
-      });
-
-      new google.maps.Marker({
-        position: { lat: 26.284674, lng: -80.163194},
-        map,
-        title: "Great Location to BÜNDOCK",
-      });
-      
-      new google.maps.Marker({
-        position: { lat: 26.376438, lng:  -80.244298 },
-        map,
-        title: "Great Location to BÜNDOCK",
-      });
+        if(searchResult){
+        searchResult.map((docks) => {
+          
+          const markerDot = { lat: Number(docks.lambda), lng: Number(docks.phi)}
+          console.log(markerDot)
+          new google.maps.Marker({
+            position: markerDot,
+            map,
+            title: docks.dockName || "Happy Exploring",
+          });
+        })
+      }
 
     });
-  }, []);
-
-  
+  }, [searchResult]);
 
   return (
   <div ref={mapRef} style={{ width: "100%", height: "350px"  }} />

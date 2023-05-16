@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Form, Button, InputGroup} from "react-bootstrap";
 import { TbMapSearch } from "react-icons/tb";
 
-export default function Search() {
+export default function Search({searchResult, setSearchResult}) {
   const [searchCity, setSearchCity] = useState("");
-  const [searchResult, setSearchResult] = useState();
+  // const [searchResult, setSearchResult] = useState();
 
   const handleSearch = async () => {
     try {
@@ -38,29 +38,7 @@ export default function Search() {
         </Button>
       </InputGroup>
             </Form>
-      {searchResult && (
-        <div>
-          {searchResult.map((docks) => {
-            return (
-
-              
-              <div key={docks._id}>
-                <h2>City: {docks.city}</h2>
-                <p>△: {docks.lambda}</p>
-                <p>⏀: {docks.phi}</p>
-             
-                <p>
-                  <a
-                    href={`https://www.google.com/maps/place/${docks.lambda}+${docks.phi}`}
-                    target="_blank" rel="noreferrer">
-                    Google
-                  </a>
-                </p>
-              </div>
-            );
-          })}
-        </div>
-      )}
+      
     </div>
   );
 }

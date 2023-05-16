@@ -9,12 +9,12 @@ import "./styles/App.css";
 
 function App() {
   const [docks, setDocks] = useState("");
-
+  const [searchResult, setSearchResult] = useState();
   return (
     <div className="App">
-      <NavMenu />
+      <NavMenu setSearchResult={setSearchResult} searchResult={searchResult}/>
       <header className="App-header">
-        <Maps />
+        <Maps searchResult={searchResult} setSearchResult={setSearchResult} />
        
       </header>
       
