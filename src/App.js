@@ -1,8 +1,10 @@
 import { useState } from "react";
-import Main from "./components/home/Main";
+import { Container, Row, Col } from "react-bootstrap";
 import Footer from "./components/home/Footer";
 import NavMenu from "./components/NavBar";
 import Maps from "./components/home/Maps";
+import Search from "./components/home/Search";
+import AddDock from "./components/home/AddDock"
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/App.css";
 
@@ -14,9 +16,19 @@ function App() {
       <NavMenu />
       <header className="App-header">
         <Maps />
+       
       </header>
+      
       <main>
-        <Main docks={docks} setDocks={setDocks} />
+        <Container>
+          <Row>
+            <Col>
+              <Row className="add-bundock">
+                <AddDock setDocks={setDocks} />
+              </Row>
+            </Col>
+          </Row>
+        </Container>
       </main>
       <Footer />
     </div>

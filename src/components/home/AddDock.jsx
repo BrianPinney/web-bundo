@@ -1,10 +1,12 @@
 import { useState } from "react"
+import {Form, Button, Container} from "react-bootstrap"
 
 export default function AddDock ({setDocks}){
 const [ lambda, setLambda] = useState('')
 const [ phi, setPhi] = useState('')
 const [city, setCity] = useState('')
 const [dockName, setDockName] = useState('')
+
 
 const handleAddDock = (e) => {
     e.preventDefault()
@@ -26,48 +28,45 @@ const handleAddDock = (e) => {
 }
     return (
 
-       <>
-        <form onSubmit={handleAddDock}>
-            <h2>DOCK</h2>
-            <label htmlFor="dockName"> Dock Name 
-                <input 
+       <section>
+        <Container fluid>
+        <Form onSubmit={handleAddDock} className="d-flex">
+        <Form.Label htmlFor="dockName"> Dock Name 
+                <Form.Control
                 type="text"
                 placeholder="Name your dock"
                 value={dockName}
                 onChange={(e) => {
                     setDockName(e.target.value)}} />
-            </label>
-            <br />
-            <label htmlFor="city"> 🚐 City 
-                <input 
+            </Form.Label>
+            <Form.Label htmlFor="city"> 🚐 City 
+                <Form.Control
                 type="text"
                 placeholder="Where"
                 value={city}
                 onChange={(e) => {
                     setCity(e.target.value)}} />
-            </label>
-            <br />
-            <label htmlFor="lambda"> Lambda
-                <input 
+            </Form.Label>
+            <Form.Label htmlFor="lambda"> Lambda
+                <Form.Control
                     type="text" 
                     placeholder="Longitude" 
                     value={lambda} 
                     onChange={(e) => {
                         setLambda(e.target.value)}}/>
-            </label>
-        <br />
-            <label htmlFor="phi"> Phi
-                <input 
+            </Form.Label>        
+            <Form.Label htmlFor="phi"> Phi
+                <Form.Control
                     type="text" 
                     placeholder="Latitude" 
                     value={phi}
                     onChange={(e) => {
                         setPhi(e.target.value)}}
                         />
-            </label>
-            <br />
-            <input type="submit" value={"DOCK IT"} />
-        </form>
-        </>
+            </Form.Label>
+              <Button variant="outline-success" text-align="center">Create</Button>
+            </Form>
+            </Container>
+        </section>
     )
 }

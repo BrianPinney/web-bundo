@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
+import { OverlayTrigger, Popover } from "react-bootstrap";
 
-export default function Maps() {
+
+export default function Maps( {searchResult}) {
   const [location, setLocation] = useState({ lat: 26.350771, lng: -80.155436 });
   const mapRef = useRef(null);
 
@@ -28,14 +30,42 @@ export default function Maps() {
         zoom: 11,
       });
 
-      new google.maps.Marker({
-        position: { lat: location.lat, lng: location.lng },
+      console.table(searchResult);
+      
+      const marker = new google.maps.Marker({
+        position: { lat: 26.366785, lng: -80.068113 },
         map,
         title: "Great Location to BÜNDOCK",
       });
+      
+      const contentString = 'Hello everyone';
+      
+      const infowindow = new google.maps.InfoWindow({
+        content: contentString,
+      });
+      
+      marker.addListener("mouseover", () => {
+        infowindow.open(map, marker);
+      });
+      
+      marker.addListener("mouseout", () => {
+        infowindow.close();
+      });
+
+      new google.maps.Marker({
+        position: { lat: 26.284674, lng: -80.163194},
+        map,
+        title: "Great Location to BÜNDOCK",
+      });
+      
+
 
     });
   }, []);
 
-  return <div ref={mapRef} style={{ height: "350px", width: "100%" }} />;
+  
+
+  return (
+  <div ref={mapRef} style={{ width: "100%", height: "350px"  }} />
+  );
 }
