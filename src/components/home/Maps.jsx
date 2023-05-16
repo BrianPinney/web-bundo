@@ -58,7 +58,11 @@ export default function Maps( {searchResult}) {
         title: "Great Location to BÜNDOCK",
       });
       
-
+      new google.maps.Marker({
+        position: { lat: 26.376438, lng:  -80.244298 },
+        map,
+        title: "Great Location to BÜNDOCK",
+      });
 
     });
   }, []);
