@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { Button } from "react-bootstrap"
+import { RiStarSmileLine, RiStarSmileFill } from "react-icons/ri"
 
 export default function RateDock(){
   const [rating, setRating] = useState(0)
@@ -12,7 +14,7 @@ export default function RateDock(){
   const handleRatingSubmit = (e) => {
     e.preventDefault()
 
-    fetch("apiURL",{
+    fetch("https://bundo.web.app/ratings",{
       method: "POST",
       headers: { "Content-Type": "application",
     },
@@ -30,19 +32,21 @@ export default function RateDock(){
     })
   }
   return(
-    <div>
-      <h2>Rate this BÜNDOCK</h2>
+    <div className="rate-window">
+      <p className="font-size 18px">Rate this BÜNDOCK</p>
     <div>
     {[1,2,3,4,5].map((ratings) =>(
       <span
         key={ratings}
         onClick={() => handleRatingChange(ratings)}
         >
-          {ratings <= rating ? "★" : "✩" }
+          {ratings <= rating 
+          ? <RiStarSmileFill/> 
+          : <RiStarSmileLine/> }
         </span>
   ))}
   </div>
-  <Button onClick={handleRatingSubmit}>submit</Button>
+  <Button onClick={handleRatingSubmit} variant="outline-success" id="button-addon2" >submit</Button>
   </div>
   )
 }

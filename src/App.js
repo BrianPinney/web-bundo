@@ -29,7 +29,11 @@ function App() {
           </Row>
         </Container>
       </main>
-      <Footer />
+
+      <footer>
+        <Footer />
+        </footer>
+      
     </div>
   );
 }

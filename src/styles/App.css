@@ -3,7 +3,7 @@
 
 .App {
   text-align: center;
-  font-family: 'Press Start 2P', cursive;                             
+  font-family: 'Press Start 2P', cursive;                         
 }
 
 .App-header {
@@ -16,4 +16,13 @@
   color: white;
 }
 
+.rate-window {
+  color: rgb(92, 139, 92);
+  font-size: 11px;
+  font-family: 'Press Start 2P', cursive; 
+}
+
+.rate-button {
+  
+}
 

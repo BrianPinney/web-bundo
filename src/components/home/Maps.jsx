@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import { Button } from "react-bootstrap";
+import ReactDOMServer from "react-dom/server"
+import RateDock from "./RateDock";
 
 export default function Maps({ searchResult, setSearchResult }) {
   const [location, setLocation] = useState({ lat: 26.350771, lng: -80.155436 });
@@ -42,33 +43,37 @@ export default function Maps({ searchResult, setSearchResult }) {
             
           });
 
-          const hoverWindow = '<div><title>{docks.dockName}</title><p>Commment</p><p>rating ⭐️⭐️⭐️⭐️⭐️</p></div>'
+          // const hoverWindow = '<div><title>{docks.dockName}</title><p>Commment</p><p>rating ⭐️⭐️⭐️⭐️⭐️</p></div>'
 
-          const infowindowHover = new google.maps.InfoWindow({
-            content: hoverWindow,
-            maxWidth: 200,
+          // const infowindowHover = new google.maps.InfoWindow({
+          //   content: hoverWindow,
+          //   maxWidth: 200,
             
-          });
+          // });
 
-          marker.addListener("mouseover", () => {
-            infowindowHover.open({
-              anchor: marker,
-              map,
-            })
+          // marker.addListener("mouseover", () => {
+          //   infowindowHover.open({
+          //     anchor: marker,
+          //     map,
+          //   })
 
-            marker.addListener("mouseout", () => {
-              infowindowHover.close()
-            })
+          //   marker.addListener("mouseout", () => {
+          //     infowindowHover.close()
+          //   })
 
-          });
+          // });
 
             const infowindowClick = new google.maps.InfoWindow({
-            content: "New comment and rating ⭐️⭐️⭐️⭐️⭐️",
+            
             maxWidth: 200,
             
           });
 
           marker.addListener("click", () => {
+            const content = ReactDOMServer.renderToString(<RateDock />); // Render your component to HTML
+
+            infowindowClick.setContent(content);
+
             infowindowClick.open({
               anchor: marker,
               map,
