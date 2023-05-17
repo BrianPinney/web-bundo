@@ -53,7 +53,7 @@ const handleAddDock = (e) => {
             <Form.Label htmlFor="lambda"> Lambda
                 <Form.Control
                     type="text" 
-                    placeholder="Longitude" 
+                    placeholder="Latitude" 
                     value={lambda} 
                     onChange={(e) => {
                         setLambda(e.target.value)}}/>
@@ -61,7 +61,7 @@ const handleAddDock = (e) => {
             <Form.Label htmlFor="phi"> Phi
                 <Form.Control
                     type="text" 
-                    placeholder="Latitude" 
+                    placeholder="Longitude" 
                     value={phi}
                     onChange={(e) => {
                         setPhi(e.target.value)}}

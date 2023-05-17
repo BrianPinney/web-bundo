@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import { Popover } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
-
-export default function Maps( {searchResult, setSearchResult}) {
+export default function Maps({ searchResult, setSearchResult }) {
   const [location, setLocation] = useState({ lat: 26.350771, lng: -80.155436 });
   const mapRef = useRef(null);
 
@@ -29,27 +28,56 @@ export default function Maps( {searchResult, setSearchResult}) {
         center: { lat: location.lat, lng: location.lng },
         zoom: 11,
       });
-      
-        if(searchResult){
+
+      if (searchResult) {
         searchResult.map((docks) => {
-          
-          const markerDot = { lat: Number(docks.lambda), lng: Number(docks.phi)}
+          const markerDot = {
+            lat: Number(docks.lambda),
+            lng: Number(docks.phi),
+          };
           const marker = new google.maps.Marker({
             position: markerDot,
             map,
             animation: google.maps.Animation.DROP,
-            title: docks.dockName || "Happy Exploring",
-          });
-          marker.addListener("mouseover", () => {
             
-          })
-        })
-      }
+          });
 
+          const hoverWindow = '<div><title>{docks.dockName}</title><p>Commment</p><p>rating ⭐️⭐️⭐️⭐️⭐️</p></div>'
+
+          const infowindowHover = new google.maps.InfoWindow({
+            content: hoverWindow,
+            maxWidth: 200,
+            
+          });
+
+          marker.addListener("mouseover", () => {
+            infowindowHover.open({
+              anchor: marker,
+              map,
+            })
+
+            marker.addListener("mouseout", () => {
+              infowindowHover.close()
+            })
+
+          });
+
+            const infowindowClick = new google.maps.InfoWindow({
+            content: "New comment and rating ⭐️⭐️⭐️⭐️⭐️",
+            maxWidth: 200,
+            
+          });
+
+          marker.addListener("click", () => {
+            infowindowClick.open({
+              anchor: marker,
+              map,
+            });
+          });
+        });
+      }
     });
   }, [searchResult]);
 
-  return (
-  <div ref={mapRef} style={{ width: "100%", height: "350px"  }} />
-  );
+  return <div ref={mapRef} style={{ width: "100%", height: "350px" }} />;
 }
