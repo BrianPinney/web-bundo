@@ -6,6 +6,7 @@ import Maps from "./components/home/Maps";
 import AddDock from "./components/home/AddDock"
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/App.css";
+import RateDock from "./components/home/RateDock";
 
 function App() {
   const [docks, setDocks] = useState("");
@@ -24,6 +25,7 @@ function App() {
             <Col>
               <Row className="add-bundock">
                 <AddDock setDocks={setDocks} />
+                <RateDock/>
               </Row>
             </Col>
           </Row>

@@ -16,7 +16,7 @@ export default function RateDock(){
 
     fetch("https://bundo.web.app/ratings",{
       method: "POST",
-      headers: { "Content-Type": "application",
+      headers: { "Content-Type": "application/json",
     },
     body: JSON.stringify({ rating }),
     })

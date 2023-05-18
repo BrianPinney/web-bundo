@@ -42,27 +42,7 @@ export default function Maps({ searchResult, setSearchResult }) {
             animation: google.maps.Animation.DROP,
             
           });
-
-          // const hoverWindow = '<div><title>{docks.dockName}</title><p>Commment</p><p>rating ⭐️⭐️⭐️⭐️⭐️</p></div>'
-
-          // const infowindowHover = new google.maps.InfoWindow({
-          //   content: hoverWindow,
-          //   maxWidth: 200,
-            
-          // });
-
-          // marker.addListener("mouseover", () => {
-          //   infowindowHover.open({
-          //     anchor: marker,
-          //     map,
-          //   })
-
-          //   marker.addListener("mouseout", () => {
-          //     infowindowHover.close()
-          //   })
-
-          // });
-
+          
             const infowindowClick = new google.maps.InfoWindow({
             
             maxWidth: 200,
@@ -70,7 +50,7 @@ export default function Maps({ searchResult, setSearchResult }) {
           });
 
           marker.addListener("click", () => {
-            const content = ReactDOMServer.renderToString(<RateDock />); // Render your component to HTML
+            const content = ReactDOMServer.renderToString(<RateDock />);
 
             infowindowClick.setContent(content);
 
