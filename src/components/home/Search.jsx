@@ -4,7 +4,6 @@ import { TbMapSearch } from "react-icons/tb";
 
 export default function Search({searchResult, setSearchResult}) {
   const [searchCity, setSearchCity] = useState("");
-  // const [searchResult, setSearchResult] = useState();
 
   const handleSearch = async (e) => {
     e.preventDefault()

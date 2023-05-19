@@ -42,7 +42,7 @@ export default function Maps({ searchResult, setSearchResult }) {
             animation: google.maps.Animation.DROP,
             
           });
-          
+
             const infowindowClick = new google.maps.InfoWindow({
             
             maxWidth: 200,
