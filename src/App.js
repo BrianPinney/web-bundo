@@ -19,7 +19,7 @@ function App() {
         <Container>
           <Row>
             <Col className="map-box">
-                <Maps2 searchResult={searchResult} setSearchResult={setSearchResult} setDocks={setDocks}/>
+              <Maps2 searchResult={searchResult} setSearchResult={setSearchResult} setDocks={setDocks}/>
             </Col>
           </Row>
         </Container>
