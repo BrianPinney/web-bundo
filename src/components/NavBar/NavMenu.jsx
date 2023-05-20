@@ -4,17 +4,17 @@ import Search from "../home/Search";
 
 export default function NavMenu({searchResult, setSearchResult, setDocks}) {
   return (
-    <Navbar bg="light" expand="lg">
-      <Container>
+    <Navbar bg="light">
+      <Container fluid>
         <Row>
         <Col>
-        <AddDock setDocks={setDocks} />
+        <Search setSearchResult={setSearchResult} searchResult={searchResult}/>
           </Col>
           <Col>
             <Navbar.Brand >BÜNDO</Navbar.Brand>
           </Col>
           <Col >
-          <Search setSearchResult={setSearchResult} searchResult={searchResult}/>
+          <AddDock setDocks={setDocks}/>
           </Col>
         </Row>
       </Container>

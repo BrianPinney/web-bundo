@@ -36,14 +36,14 @@ min-height: min-content;
 .canvas-button {
   background-color: #000000;
   color: #03f40f;
-  border-radius: 50%;
+  border-radius: 10%;
 }
 
 .canvas-button:hover {
   background: #03f40f;
   color: #fff;
   border: #ffffff;
-  border-radius: 50%;
+  border-radius: 10%;
   box-shadow: 0 0 5px #03f40f,
               0 0 10px #03f40f,
               0 0 15px #03f40f,

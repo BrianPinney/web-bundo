@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { toast } from 'react-toastify'
 import { Offcanvas } from "react-bootstrap"
-import { AiOutlineDoubleRight } from "react-icons/ai"
+import { AiOutlineDoubleLeft } from "react-icons/ai"
 import {Form, Button, Row, Container, Col} from "react-bootstrap"
 
 export default function AddDock ({setDocks}){
@@ -36,10 +36,10 @@ const handleAddDock = (e) => {
     return (
         <>
         <Button className="canvas-button" onClick={handleShow}>
-        <AiOutlineDoubleRight/>
+        <AiOutlineDoubleLeft/>
         </Button>
   
-        <Offcanvas className="canvas-name" show={show} onHide={handleClose}>
+        <Offcanvas className="canvas-name" show={show} onHide={handleClose} placement="end">
           <Offcanvas.Header closeButton>
             <Offcanvas.Title>Create Dock</Offcanvas.Title>
           </Offcanvas.Header>
