@@ -1,68 +1,50 @@
-import { useState, useEffect, useRef } from "react";
-import ReactDOMServer from "react-dom/server"
-import RateDock from "./RateDock";
+// import { useState } from "react";
+// import { GoogleMap, LoadScript, InfoBox, Marker } from "@react-google-maps/api";
+// import RateDock from "./RateDock";
 
-export default function Maps({ searchResult, setSearchResult }) {
-  const [location, setLocation] = useState({ lat: 26.350771, lng: -80.155436 });
-  const mapRef = useRef(null);
+// const containerStyle = {
+//   width: "100%",
+//   height: "350px",
+// };
 
-  useEffect(() => {
-    const API_KEY = "AIzaSyCrAbAtInm3STMieLALJ7adX6D5AAgB7j8";
-    const googleMapScript = document.createElement("script");
-    googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places`;
-    window.document.body.appendChild(googleMapScript);
+// const center = { lat: 26.350771, lng: -80.155436 };
 
-    googleMapScript.addEventListener("load", () => {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position) => {
-          let YourCurrentLocation = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          };
-          console.log("YourCurrentLocation", YourCurrentLocation);
-          setLocation(YourCurrentLocation);
-        });
-      }
+// export default function Maps({ searchResult, setSearchResult, setDocks }) {
+  
+//   const [showInfo, setShowInfo] = useState(false);
+//   const [thisDock, setThisDock] = useState(false);
+//   console.log(showInfo)
 
-      const google = window.google;
-      const map = new google.maps.Map(mapRef.current, {
-        center: { lat: location.lat, lng: location.lng },
-        zoom: 11,
-      });
+//   return (
+//     <LoadScript googleMapsApiKey="AIzaSyCrAbAtInm3STMieLALJ7adX6D5AAgB7j8">
+//       <GoogleMap
+//         mapContainerStyle={containerStyle}
+//         center={center}
+//         zoom={10}
+//       >
+//         {showInfo && <InfoBox onCloseClick={ () => setShowInfo(false)} position={{ lat: Number(thisDock.lambda), lng: Number(thisDock.phi) }}>
+//           <div
+//             style={{ backgroundColor: "white",
+//             padding: 12,
+//             border: "2px solid grey",
+//             borderRadius: 9,
+//             width: 200,}}
+//           >
+//             <div style={{ fontSize: 18, color: "#03f40f"}}>
+//               {thisDock.dockName}
+//             </div>
+//             <RateDock dock={thisDock} setShowInfo={setShowInfo} setDocks={setDocks}/>
+//           </div>
+//         </InfoBox>}
+//         {searchResult &&
+//           searchResult.map((docks) => (
+//             <Marker
+//               position={{ lat: Number(docks.lambda), lng: Number(docks.phi) }}
+//               onClick={() => { setThisDock(docks); setShowInfo(true); }}
 
-      if (searchResult) {
-        searchResult.map((docks) => {
-          const markerDot = {
-            lat: Number(docks.lambda),
-            lng: Number(docks.phi),
-          };
-          const marker = new google.maps.Marker({
-            position: markerDot,
-            map,
-            animation: google.maps.Animation.DROP,
-            
-          });
-
-            const infowindowClick = new google.maps.InfoWindow({
-            
-            maxWidth: 200,
-            
-          });
-
-          marker.addListener("click", () => {
-            const content = ReactDOMServer.renderToString(<RateDock />);
-
-            infowindowClick.setContent(content);
-
-            infowindowClick.open({
-              anchor: marker,
-              map,
-            });
-          });
-        });
-      }
-    });
-  }, [searchResult]);
-
-  return <div ref={mapRef} style={{ width: "100%", height: "350px" }} />;
-}
+//             />
+//           ))}
+//       </GoogleMap>
+//     </LoadScript>
+//   );
+// }

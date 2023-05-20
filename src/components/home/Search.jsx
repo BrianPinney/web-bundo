@@ -31,9 +31,9 @@ export default function Search({searchResult, setSearchResult}) {
           value={searchCity}
           aria-label="Search"
           aria-describedby="basic-addon2"
-          onChange={(e) => setSearchCity(e.target.value)}
+          onChange={(e) => setSearchCity(e.target.value.toLowerCase())}
         />
-        <Button onClick={handleSearch} className="rate-button" variant="outline-success" id="button-addon2">
+        <Button onClick={handleSearch} className="search-button"  id="button-addon2">
         <TbMapSearch/>
         </Button>
       </InputGroup>

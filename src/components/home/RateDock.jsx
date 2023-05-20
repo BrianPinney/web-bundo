@@ -1,15 +1,13 @@
-import { useState } from "react";
-import { Button } from "react-bootstrap";
+
 import { RiStarSmileLine, RiStarSmileFill } from "react-icons/ri";
+import { toast } from 'react-toastify'
 
 export default function RateDock({ dock, setShowInfo, setDocks}) {
-
-
   
 
   const handleRatingSubmit = (rating) => {
+
     fetch(`https://bundo-bp.web.app/docks/${dock._id}`, {
-    // fetch(`http://localhost:5002/docks/${dock._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ rating }),
@@ -19,7 +17,7 @@ export default function RateDock({ dock, setShowInfo, setDocks}) {
         if (data.error) {
           alert(data.error);
         } else {
-          alert("Rating Achievement Unlocked 🎖️");
+          toast.success("Rating Achievement Unlocked 🎖️");
           setShowInfo(false)
           setDocks(data)
         }
@@ -28,6 +26,8 @@ export default function RateDock({ dock, setShowInfo, setDocks}) {
         console.error(err);
         alert("Failed to update dock rating.");
       });
+     
+
   };
 
   return (
@@ -35,7 +35,7 @@ export default function RateDock({ dock, setShowInfo, setDocks}) {
       
       <div>
         {[1, 2, 3, 4, 5].map((ratings) => (
-          <span key={ratings} onClick={() => handleRatingSubmit(ratings)}>
+          <span key={ratings} onClick={() => handleRatingSubmit(ratings)} style={{fontSize: 22, cursor: "pointer"}}>
             {ratings <= dock.rating 
             ? <RiStarSmileFill /> 
             : <RiStarSmileLine />}

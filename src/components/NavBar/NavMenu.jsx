@@ -1,29 +1,20 @@
 import {Col, Container, Row, Nav, Navbar} from "react-bootstrap";
+import AddDock from "../home/AddDock";
 import Search from "../home/Search";
 
-export default function NavMenu({searchResult, setSearchResult}) {
+export default function NavMenu({searchResult, setSearchResult, setDocks}) {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
         <Row>
-          <Col >
-          <Search setSearchResult={setSearchResult} searchResult={searchResult}/>
+        <Col>
+        <AddDock setDocks={setDocks} />
           </Col>
           <Col>
             <Navbar.Brand >BÜNDO</Navbar.Brand>
           </Col>
-          <Col>
-            <Navbar.Toggle aria-controls="navbarScroll" />
-            <Navbar.Collapse id="navbarScroll">
-              <Nav
-                className="me-auto my-2 my-lg-0"
-                style={{ maxHeight: "100px" }}
-                navbarScroll
-              >
-                <Nav.Link href="#action1">About</Nav.Link>
-                <Nav.Link href="#action2">Contact</Nav.Link>
-              </Nav>
-            </Navbar.Collapse>
+          <Col >
+          <Search setSearchResult={setSearchResult} searchResult={searchResult}/>
           </Col>
         </Row>
       </Container>

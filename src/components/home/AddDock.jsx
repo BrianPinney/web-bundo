@@ -1,4 +1,7 @@
 import { useState } from "react"
+import { toast } from 'react-toastify'
+import { Offcanvas } from "react-bootstrap"
+import { AiOutlineDoubleRight } from "react-icons/ai"
 import {Form, Button, Row, Container, Col} from "react-bootstrap"
 
 export default function AddDock ({setDocks}){
@@ -6,6 +9,10 @@ const [ lambda, setLambda] = useState('')
 const [ phi, setPhi] = useState('')
 const [city, setCity] = useState('')
 const [dockName, setDockName] = useState('')
+
+const [show, setShow] = useState(false);
+const handleClose = () => setShow(false);
+const handleShow = () => setShow(true);
 
 
 const handleAddDock = (e) => {
@@ -19,7 +26,7 @@ const handleAddDock = (e) => {
 .then((resp) => resp.json())
 .then((data) => {
     if (data.message) {
-        alert(data.message)
+        toast.success(data.message)
         return
     }
     setDocks(data)
@@ -27,53 +34,76 @@ const handleAddDock = (e) => {
     .catch(alert)
 }
     return (
-
+        <>
+        <Button className="canvas-button" onClick={handleShow}>
+        <AiOutlineDoubleRight/>
+        </Button>
+  
+        <Offcanvas className="canvas-name" show={show} onHide={handleClose}>
+          <Offcanvas.Header closeButton>
+            <Offcanvas.Title>Create Dock</Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body>
        <section>
-        <Container >
-            <Row>
-                <Col sm={10} md={10} lg={10} xl={10}>
-        <Form onSubmit={handleAddDock} className="d-flex">
-        <Form.Group>
-        <Form.Label htmlFor="dockName"> Dock Name 
-                <Form.Control
-                type="text"
-                placeholder="Name your dock"
-                value={dockName}
-                onChange={(e) => {
-                    setDockName(e.target.value)}} />
-            </Form.Label>
-            <Form.Label htmlFor="city"> 🚐 City 
-                <Form.Control
-                type="text"
-                placeholder="Where"
-                value={city}
-                onChange={(e) => {
-                    setCity(e.target.value)}} />
-            </Form.Label>
-            <Form.Label htmlFor="lambda"> Lambda
-                <Form.Control
+            <div class="login-box">
+ 
+            <form>
+            <div class="user-box"> 
+                <input 
+                    type="text" 
+                    placeholder="Name your dock" 
+                    value={dockName}
+                    onChange={(e) => {
+                    setDockName(e.target.value)}}
+                        />
+                    <label>Dock Name</label>
+                </div>
+                <div class="user-box"> 
+                <input 
+                    type="text" 
+                    placeholder="Where" 
+                    value={city}
+                    onChange={(e) => {
+                    setCity(e.target.value)}}
+                        />
+                    <label>City</label>
+                </div>
+                <div class="user-box">
+                    <input 
                     type="text" 
                     placeholder="Latitude" 
-                    value={lambda} 
+                    value={lambda}
                     onChange={(e) => {
-                        setLambda(e.target.value)}}/>
-            </Form.Label>        
-            <Form.Label htmlFor="phi"> Phi
-                <Form.Control
+                    setLambda(e.target.value)}}
+                        />
+                    <label>Lambda</label>
+                </div>
+                <div class="user-box">
+                    <input 
                     type="text" 
                     placeholder="Longitude" 
                     value={phi}
                     onChange={(e) => {
-                        setPhi(e.target.value)}}
+                    setPhi(e.target.value)}}
                         />
-            </Form.Label> 
-            </Form.Group>
-              <Button onClick={handleAddDock} variant="outline-success" text-align="center">Create</Button>
-             
-            </Form>
-            </Col>
-            </Row>
-            </Container>
+                    <label>Phi</label>
+            </div>
+                <center>
+                <button onClick={handleAddDock}>
+                    Create
+                <span></span>
+                </button>
+                </center>
+            </form>
+        </div>
         </section>
-    )
+        </Offcanvas.Body>
+      </Offcanvas>
+    </>
+  );
 }
+
+
+
+
+

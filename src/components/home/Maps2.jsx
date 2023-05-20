@@ -3,13 +3,17 @@ import { GoogleMap, LoadScript, InfoBox, Marker } from "@react-google-maps/api";
 import RateDock from "./RateDock";
 
 const containerStyle = {
-  width: "100%",
-  height: "350px",
+  border: "green",
+  borderRadius: "50%",
+  width: "750px",
+  height: "750px",
+  color: "#fff",
+  boxShadow: "0 0 35px #03f40f",
 };
 
 const center = { lat: 26.350771, lng: -80.155436 };
 
-export default function Maps2({ searchResult, setSearchResult, setDocks }) {
+export default function Maps2({ searchResult, setDocks }) {
   
   const [showInfo, setShowInfo] = useState(false);
   const [thisDock, setThisDock] = useState(false);
@@ -30,7 +34,7 @@ export default function Maps2({ searchResult, setSearchResult, setDocks }) {
             borderRadius: 9,
             width: 200,}}
           >
-            <div style={{ fontSize: 16, color: "green" }}>
+            <div style={{ fontSize: 18, color: "#03f40f"}}>
               {thisDock.dockName}
             </div>
             <RateDock dock={thisDock} setShowInfo={setShowInfo} setDocks={setDocks}/>
