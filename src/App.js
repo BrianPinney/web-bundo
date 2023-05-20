@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <NavMenu setSearchResult={setSearchResult} searchResult={searchResult}/>
       <header className="App-header">
-        <Maps2 searchResult={searchResult} setSearchResult={setSearchResult} />
+        <Maps2 searchResult={searchResult} setSearchResult={setSearchResult} setDocks={setDocks}/>
        
       </header>
       

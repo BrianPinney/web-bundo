@@ -9,10 +9,11 @@ const containerStyle = {
 
 const center = { lat: 26.350771, lng: -80.155436 };
 
-export default function Maps2({ searchResult, setSearchResult }) {
+export default function Maps2({ searchResult, setSearchResult, setDocks }) {
   
   const [showInfo, setShowInfo] = useState(false);
   const [thisDock, setThisDock] = useState(false);
+  console.log(showInfo)
 
   return (
     <LoadScript googleMapsApiKey="AIzaSyCrAbAtInm3STMieLALJ7adX6D5AAgB7j8">
@@ -21,7 +22,7 @@ export default function Maps2({ searchResult, setSearchResult }) {
         center={center}
         zoom={10}
       >
-        {showInfo && <InfoBox position={{ lat: Number(thisDock.lambda), lng: Number(thisDock.phi) }}>
+        {showInfo && <InfoBox onCloseClick={ () => setShowInfo(false)} position={{ lat: Number(thisDock.lambda), lng: Number(thisDock.phi) }}>
           <div
             style={{ backgroundColor: "white",
             padding: 12,
@@ -32,7 +33,7 @@ export default function Maps2({ searchResult, setSearchResult }) {
             <div style={{ fontSize: 16, color: "green" }}>
               {thisDock.dockName}
             </div>
-            <RateDock dock={thisDock} />
+            <RateDock dock={thisDock} setShowInfo={setShowInfo} setDocks={setDocks}/>
           </div>
         </InfoBox>}
         {searchResult &&
