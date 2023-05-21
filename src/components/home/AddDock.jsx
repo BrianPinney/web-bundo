@@ -27,6 +27,10 @@ const handleAddDock = (e) => {
 .then((data) => {
     if (data.message) {
         toast.success(data.message)
+        setDockName("")
+        setCity("")
+        setLambda("")
+        setPhi("")
         return
     }
     setDocks(data)

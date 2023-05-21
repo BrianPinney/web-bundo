@@ -2,15 +2,9 @@
 
 
 .App {
-  
   text-align: center;
   font-family: 'Press Start 2P', cursive;                         
 }
-
-main {
-min-height: min-content;
-}
-
 
 .rate-window {
   color: #03f40f;
@@ -54,10 +48,6 @@ min-height: min-content;
   font-family: 'Press Start 2P', cursive;
 }
 
-.map-box {
-  
-}
-
 .login-box {
   position: inherit;
   width: 100%;
@@ -91,6 +81,11 @@ min-height: min-content;
   display: flex;
   width: 100%;
 }
+
+.add-dock{
+  
+}
+
 
 .login-box .user-box label {
   position: absolute;
@@ -172,3 +167,4 @@ div[style='margin: 0px 5px; z-index: 1000000; position: absolute; left: 0px; bot
 div[style="width: 66px; height: 26px;"] {
   display: none;
 }
+
