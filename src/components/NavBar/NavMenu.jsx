@@ -10,9 +10,6 @@ export default function NavMenu({searchResult, setSearchResult, setDocks}) {
         <Col sm={10} md={4} lg={4}>
         <Search setSearchResult={setSearchResult} searchResult={searchResult}/>
           </Col>
-          <Col className="logo" sm={10}>
-            <Navbar.Brand >BÜNDO</Navbar.Brand>
-          </Col>
           </Row>
           <Row className="add-dock">
           <Col sm={2} md={2} lg={2}>
