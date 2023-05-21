@@ -2,7 +2,7 @@ import { useState } from "react"
 import { toast } from 'react-toastify'
 import { Offcanvas } from "react-bootstrap"
 import { AiOutlineDoubleLeft } from "react-icons/ai"
-import {Form, Button, Row, Container, Col} from "react-bootstrap"
+import { Button } from "react-bootstrap"
 
 export default function AddDock ({setDocks}){
 const [ lambda, setLambda] = useState('')

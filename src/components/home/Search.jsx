@@ -22,9 +22,9 @@ export default function Search({searchResult, setSearchResult}) {
 
   return (
     <div>
-      <Form onSubmit={handleSearch} className="d-flex">
+      <Form onSubmit={handleSearch}>
               
-        <InputGroup className="mb-3">
+        <InputGroup>
         <Form.Control
           type="search"
           placeholder="City"

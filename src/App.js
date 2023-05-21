@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Maps2 from "./components/home/Maps2";
-import NavMenu from "./components/NavBar/NavMenu";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/App.css";
 import Hero from "./components/home/Hero";
+import AddDock from "./components/home/AddDock";
+import Search from "./components/home/Search";
 
 function App() {
   const [docks, setDocks] = useState("");
@@ -14,13 +15,12 @@ function App() {
       <header>
         <Hero/>
       </header>
-      <section>
-      <NavMenu setSearchResult={setSearchResult} setDocks={setDocks} />
-      </section>
       <main>
         <Container fluid className="content">
-          <Row>
-            <Col className="map-box">
+              <Row >
+                <Col >
+                  <Search searchResult={searchResult} setSearchResult={setSearchResult}/>
+                  <AddDock setDocks={setDocks}/>       
                 <Maps2 searchResult={searchResult} setSearchResult={setSearchResult} setDocks={setDocks}/> 
             </Col>
           </Row>

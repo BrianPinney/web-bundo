@@ -7,7 +7,7 @@ export default function Hero(){
     <Row>
     <Col>
     <div className="van">
-      <img  src="/images/16-bit-van.png"/>
+      <img  src="/images/16-bit-van2.png"/>
     </div>
     </Col>
     </Row>
