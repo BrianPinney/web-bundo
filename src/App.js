@@ -16,7 +16,7 @@ function App() {
       <NavMenu setSearchResult={setSearchResult} setDocks={setDocks} />
       </section>
       <main>
-        <Container>
+        <Container xl={11} fluid >
           <Row>
             <Col className="map-box">
               <Maps2 searchResult={searchResult} setSearchResult={setSearchResult} setDocks={setDocks}/>

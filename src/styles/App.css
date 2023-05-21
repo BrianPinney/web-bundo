@@ -87,6 +87,11 @@ min-height: min-content;
   background: transparent;
 }
 
+.nv-rw {
+  display: flex;
+  width: 100%;
+}
+
 .login-box .user-box label {
   position: absolute;
   top: 0;
@@ -156,3 +161,14 @@ min-height: min-content;
   animation: btn-anim1 2s linear infinite;
 }
 
+.gmnoprint {
+  display: none;
+}
+
+div[style='margin: 0px 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;'] img {
+  display: none;
+} 
+
+div[style="width: 66px; height: 26px;"] {
+  display: none;
+}

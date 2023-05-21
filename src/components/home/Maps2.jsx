@@ -4,8 +4,7 @@ import RateDock from "./RateDock";
 
 const containerStyle = {
   border: "green",
-  borderRadius: "50%",
-  width: "750px",
+  width: "100%",
   height: "750px",
   color: "#fff",
   boxShadow: "0 0 35px #03f40f",

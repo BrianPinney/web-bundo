@@ -6,7 +6,7 @@ export default function NavMenu({searchResult, setSearchResult, setDocks}) {
   return (
     <Navbar bg="light">
       <Container fluid>
-        <Row>
+        <Row className="nv-rw">
         <Col>
         <Search setSearchResult={setSearchResult} searchResult={searchResult}/>
           </Col>
