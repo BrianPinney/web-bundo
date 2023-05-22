@@ -16,7 +16,7 @@ function App() {
         <Hero/>
       </header>
       <section>
-        <Container className="se-ad">
+        <Container fluid className="se-ad">
           <Row>
             <Col className="search-bar">
               <Search searchResult={searchResult} setSearchResult={setSearchResult}/>
