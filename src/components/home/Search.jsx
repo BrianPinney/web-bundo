@@ -22,10 +22,11 @@ export default function Search({searchResult, setSearchResult}) {
 
   return (
     <div>
-      <Form onSubmit={handleSearch}>
+      <Form className="search-form" onSubmit={handleSearch}>
               
         <InputGroup>
         <Form.Control
+          
           type="search"
           placeholder="City"
           value={searchCity}

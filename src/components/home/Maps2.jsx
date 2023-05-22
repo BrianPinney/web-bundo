@@ -7,7 +7,7 @@ const containerStyle = {
   width: "100%",
   height: "750px",
   color: "#fff",
-  boxShadow: "0 0 35px #03f40f",
+  
 };
 
 const center = { lat: 26.350771, lng: -80.155436 };

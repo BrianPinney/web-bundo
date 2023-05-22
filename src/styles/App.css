@@ -13,6 +13,7 @@
   background-image: url("../../public/images/van-bg2.png");
   background-size: contain;
   animation: scrollBackground 15s linear infinite;
+  animation-fill-mode: forwards; 
 }
 
 @keyframes scrollBackground {
@@ -20,7 +21,7 @@
     background-position: 0 0;
   }
   100% {
-    background-position: -100% 0;
+    background-position: -100% 0; 
   }
 }
 
@@ -50,6 +51,11 @@
   font-family: 'Press Start 2P', cursive; 
 }
 
+.search-form {
+  position: inherit;
+  width: 300px;
+}
+
 .search-button {
   background-color: #000000;
   color: #03f40f;
@@ -65,26 +71,6 @@
               0 0 25px #03f40f;
 }
 
-.canvas-button {
-  background-color: #000000;
-  color: #03f40f;
-  border-radius: 10%;
-}
-
-.canvas-button:hover {
-  background: #03f40f;
-  color: #fff;
-  border: #ffffff;
-  border-radius: 10%;
-  box-shadow: 0 0 5px #03f40f,
-              0 0 10px #03f40f,
-              0 0 15px #03f40f,
-              0 0 25px #03f40f;
-}
-
-.canvas-name {
-  font-family: 'Press Start 2P', cursive;
-}
 
 .login-box {
   position: inherit;
@@ -113,11 +99,6 @@
   border-radius: 5px;
   outline: none;
   background: transparent;
-}
-
-.nv-rw {
-  display: flex;
-  width: 100%;
 }
 
 
@@ -162,9 +143,9 @@
   color: #fff;
   border-radius: 10px;
   box-shadow: 0 0 5px #03f40f,
-              0 0 10px #03f40f,
-              0 0 15px #03f40f,
-              0 0 25px #03f40f;
+  0 0 10px #03f40f,
+  0 0 15px #03f40f,
+  0 0 25px #03f40f;
 }
 
 .login-box button span {
@@ -176,7 +157,7 @@
   0% {
     left: -100%;
   }
-
+  
   50%,100% {
     left: 100%;
   }
@@ -193,6 +174,29 @@
 
 .gmnoprint {
   display: none;
+}
+
+.canvas-button {
+  position: absolute;
+  right: 11px;
+  background-color: #000000;
+  color: #03f40f;
+  border-radius: 10%;
+}
+
+.canvas-button:hover {
+  background: #03f40f;
+  color: #fff;
+  border: #ffffff;
+  border-radius: 10%;
+  box-shadow: 0 0 5px #03f40f,
+              0 0 10px #03f40f,
+              0 0 15px #03f40f,
+              0 0 25px #03f40f;
+}
+
+.canvas-name {
+  font-family: 'Press Start 2P', cursive;
 }
 
 div[style='margin: 0px 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;'] img {

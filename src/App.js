@@ -15,12 +15,23 @@ function App() {
       <header>
         <Hero/>
       </header>
+      <section>
+        <Container>
+          <Row>
+            <Col className="search-bar">
+              <Search searchResult={searchResult} setSearchResult={setSearchResult}/>
+              </Col>
+              <Col className="add-button">
+              <AddDock setDocks={setDocks}/> 
+            </Col>
+          </Row>
+        </Container> 
+      </section>
+                       
       <main>
         <Container fluid className="content">
               <Row >
                 <Col >
-                  <Search searchResult={searchResult} setSearchResult={setSearchResult}/>
-                  <AddDock setDocks={setDocks}/>       
                 <Maps2 searchResult={searchResult} setSearchResult={setSearchResult} setDocks={setDocks}/> 
             </Col>
           </Row>

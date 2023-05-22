@@ -40,7 +40,7 @@ const handleAddDock = (e) => {
     return (
         <>
         <Button className="canvas-button" onClick={handleShow}>
-        <AiOutlineDoubleLeft/>
+        <AiOutlineDoubleLeft/> 
         </Button>
   
         <Offcanvas className="canvas-name" show={show} onHide={handleClose} placement="end">
