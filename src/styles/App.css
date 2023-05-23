@@ -220,10 +220,11 @@ button[style='background: none rgb(255, 255, 255); border: 0px; margin: 10px; pa
 /* MD */
 @media (min-width: 500px) {
   .hero-bg {
-    height: 200px;
+    height: 180px;
   }
   
   .van {
+    position: inherit;
     top: 10%;
     left: 27%;
   }
