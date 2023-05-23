@@ -15,6 +15,7 @@
   background-size: contain;
   animation: scrollBackground 15s linear infinite;
   animation-fill-mode: forwards; 
+  background-repeat: repeat-x;
 }
 
 @keyframes scrollBackground {
