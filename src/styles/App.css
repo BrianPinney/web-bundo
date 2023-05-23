@@ -217,14 +217,25 @@ button[style='background: none rgb(255, 255, 255); border: 0px; margin: 10px; pa
     display: none !important; 
 }
 
-@media (max-width: 768px) {
+/* MD */
+@media (min-width: 500px) {
   .hero-bg {
     height: 200px;
   }
-
+  
   .van {
-    top: 8%;
+    top: 10%;
     left: 30%;
   }
 }
 
+@media (max-width: 499px) {
+  .hero-bg {
+    height: 200px;
+  }
+  
+  .van {
+    top: -10%;
+    left: 30%;
+  }
+}
